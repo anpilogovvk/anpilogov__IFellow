@@ -1,5 +1,7 @@
+import WebHooks.WebHooks;
 import com.codeborne.selenide.*;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pages.JiraAllTasksInProjectPage;
 import pages.JiraIfellowPage;
@@ -7,7 +9,7 @@ import pages.JiraMainPage;
 import pages.JiraTasksInTestProjectPage;
 import pages.TaskPage;
 
-public class SelenideTest{
+public class SelenideTest extends WebHooks {
 
     private final JiraIfellowPage  jiraIfellowPage = new JiraIfellowPage();
 
@@ -21,15 +23,8 @@ public class SelenideTest{
     private final TaskPage taskPage = new TaskPage();
 
 
-    public static void initBrowser() {
-        Configuration.browser = Browsers.CHROME;
-        Selenide.open("https://edujira.ifellow.ru/login.jsp");
-        WebDriverRunner.getWebDriver().manage().window().maximize();
-    }
-
     @Test
     public void logInTest(){
-        initBrowser();
         String searchRequest = "System Dashboard";
         jiraIfellowPage.loginIntoJira("AT1","Qwerty123");
         Assertions.assertEquals(searchRequest,jiraMainPage.getFirstResultText());
