@@ -1,7 +1,7 @@
-import WebHooks.WebHooks;
-import com.codeborne.selenide.*;
+package steps;
+
+import hooks.WebHooksForSteps;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import pages.JiraAllTasksInProjectPage;
 import pages.JiraIfellowPage;
@@ -9,7 +9,9 @@ import pages.JiraMainPage;
 import pages.JiraTasksInTestProjectPage;
 import pages.TaskPage;
 
-public class SelenideTest extends WebHooks {
+
+
+public class SelenideTest extends WebHooksForSteps {
 
     private final JiraIfellowPage  jiraIfellowPage = new JiraIfellowPage();
 
@@ -22,7 +24,6 @@ public class SelenideTest extends WebHooks {
 
     private final TaskPage taskPage = new TaskPage();
 
-
     @Test
     public void logInTest(){
         String searchRequest = "System Dashboard";
@@ -32,7 +33,6 @@ public class SelenideTest extends WebHooks {
 
     @Test
     public void getTestProject(){
-        initBrowser();
         String searchRequest = "Test";
         jiraIfellowPage.loginIntoJira("AT1","Qwerty123");
         jiraMainPage.getProjectsMenu();
@@ -44,7 +44,6 @@ public class SelenideTest extends WebHooks {
     public void getTestSeleniumTask(){
         String version = "Version 2.0";
         String status = "СДЕЛАТЬ";
-        initBrowser();
         jiraIfellowPage.loginIntoJira("AT1","Qwerty123");
         jiraMainPage.getProjectsMenu();
         jiraMainPage.getProject();
@@ -59,7 +58,6 @@ public class SelenideTest extends WebHooks {
     @Test
     public void createTask(){
         String status = "ГОТОВО";
-        initBrowser();
         jiraIfellowPage.loginIntoJira("AT1","Qwerty123");
         jiraMainPage.getProjectsMenu();
         jiraMainPage.getProject();
@@ -73,7 +71,6 @@ public class SelenideTest extends WebHooks {
 
     @Test
     public void createTaskAndChekTaskCount(){
-        initBrowser();
         jiraIfellowPage.loginIntoJira("AT1","Qwerty123");
         jiraMainPage.getProjectsMenu();
         jiraMainPage.getProject();

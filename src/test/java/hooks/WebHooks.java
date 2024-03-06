@@ -1,14 +1,16 @@
-package WebHooks;
+package hooks;
 
 import com.codeborne.selenide.Browsers;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
-import org.junit.jupiter.api.BeforeEach;
+
+import io.cucumber.java.ru.Допустим;
+
 
 public class WebHooks {
 
-    @BeforeEach
+    @Допустим("инициализируем браузер")
     public void initBrowser() {
         Configuration.browser = Browsers.CHROME;
         Selenide.open("https://edujira.ifellow.ru/login.jsp");

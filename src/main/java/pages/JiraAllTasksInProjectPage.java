@@ -15,13 +15,13 @@ public class JiraAllTasksInProjectPage {
     private final SelenideElement searchExportButton= $x("//div[@id='opsbar-jira.issue.tools']/a[@original-title='Экспортировать этот запрос в другой формат']/span[contains(text(),'Экспорт')]");
 
     public void searchTask(String searchTaskName){
+        Selenide.sleep(500);
         advancedSearch.clear();
         advancedSearch.shouldBe(Condition.visible)
                 .sendKeys(searchTaskName);
         searchExportButton.shouldHave(Condition.visible);
         searchButton.pressEnter();
     }
-
 
     public void clickExpertSearch(){
         searchExpertSearchButton.click();

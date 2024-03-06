@@ -4,8 +4,6 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 
-import java.awt.*;
-
 import static com.codeborne.selenide.Selenide.$x;
 public class TaskPage{
 
@@ -20,7 +18,7 @@ public class TaskPage{
     }
 
     public String getStatus(){
-        return searchStatus.getText();
+        return searchStatus.shouldBe(Condition.visible).getText();
     }
 
     public void setStatusInProgress(){
