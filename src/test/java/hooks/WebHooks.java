@@ -5,12 +5,12 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 
-import io.cucumber.java.ru.Допустим;
+import io.cucumber.java.Before;
 
 
 public class WebHooks {
 
-    @Допустим("инициализируем браузер")
+    @Before
     public void initBrowser() {
         Configuration.browser = Browsers.CHROME;
         Selenide.open("https://edujira.ifellow.ru/login.jsp");

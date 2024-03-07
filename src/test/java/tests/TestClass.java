@@ -9,7 +9,8 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "classpath:features",
-        glue = {"classpath:steps", "classpath:hooks"}
+        glue = {"classpath:steps", "classpath:hooks"},
+        plugin = "pretty"
 )
 public class TestClass extends WebHooks {
 
