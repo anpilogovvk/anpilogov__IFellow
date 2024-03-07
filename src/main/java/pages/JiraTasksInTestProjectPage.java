@@ -24,9 +24,4 @@ public class JiraTasksInTestProjectPage {
     public void viewAllTasks(){
         goToViewAllTasks.click();
     }
-
-
-
-
-
 }

@@ -3,7 +3,6 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Selenide.$x;
 
-
 public class JiraMainPage {
 
     private final SelenideElement searchResult = $x("//h1[contains(text(),'System Dashboard')]");
@@ -27,7 +26,6 @@ public class JiraMainPage {
         searchGoToTaskButton.click();
     }
 
-
     public String getFirstResultText() {
         return searchResult.getText();
     }
@@ -43,6 +41,4 @@ public class JiraMainPage {
     public void getCreateForm() {
         searchCreateButton.click();
     }
-
-
 }

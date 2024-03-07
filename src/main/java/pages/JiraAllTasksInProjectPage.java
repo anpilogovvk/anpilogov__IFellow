@@ -10,11 +10,11 @@ public class JiraAllTasksInProjectPage {
 
     private final SelenideElement advancedSearch = $x("//div[@class='atlassian-autocomplete']/textarea[@aria-label='Расширенный запрос']");
     private final SelenideElement searchButton = $x("//div[@class='search-options-container']/button[@original-title='Поиск задач']");
-    private final SelenideElement numberTaskButton= $x("//div[@class='issue-content-container']/span[@class='issue-link-key']");
-    private final SelenideElement searchExpertSearchButton= $x("    //div[@class='mode-switcher']/a[contains(text(),'Продвинутый')]");
-    private final SelenideElement searchExportButton= $x("//div[@id='opsbar-jira.issue.tools']/a[@original-title='Экспортировать этот запрос в другой формат']/span[contains(text(),'Экспорт')]");
+    private final SelenideElement numberTaskButton = $x("//div[@class='issue-content-container']/span[@class='issue-link-key']");
+    private final SelenideElement searchExpertSearchButton = $x("    //div[@class='mode-switcher']/a[contains(text(),'Продвинутый')]");
+    private final SelenideElement searchExportButton = $x("//div[@id='opsbar-jira.issue.tools']/a[@original-title='Экспортировать этот запрос в другой формат']/span[contains(text(),'Экспорт')]");
 
-    public void searchTask(String searchTaskName){
+    public void searchTask(String searchTaskName) {
         Selenide.sleep(500);
         advancedSearch.clear();
         advancedSearch.shouldBe(Condition.visible)
@@ -23,16 +23,14 @@ public class JiraAllTasksInProjectPage {
         searchButton.pressEnter();
     }
 
-    public void clickExpertSearch(){
+    public void clickExpertSearch() {
         searchExpertSearchButton.click();
 
     }
 
-    public void clickTask(){
+    public void clickTask() {
         searchExportButton.shouldHave(Condition.visible);
         Selenide.sleep(500);
         numberTaskButton.click();
     }
-
-
 }

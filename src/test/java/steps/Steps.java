@@ -16,16 +16,12 @@ public class Steps{
 
     private final JiraTasksInTestProjectPage jiraTasksInTestProjectPage = new JiraTasksInTestProjectPage();
 
-
     private final JiraAllTasksInProjectPage jraAllTasksInProjectPage = new JiraAllTasksInProjectPage();
 
     private final TaskPage taskPage = new TaskPage();
 
-
     private int result1;
     private int result2;
-
-
 
     @И("авторизоваться в Jira")
     public void logInTest(){
@@ -78,12 +74,10 @@ public class Steps{
         result1 =  jiraTasksInTestProjectPage.setCountTasks();
     }
 
-
     @И ("посчитать количество задач второй раз")
     public void checkCountSecond(){
         result2 =  jiraTasksInTestProjectPage.setCountTasks();
     }
-
 
     @И("проверить изменилось ли количество задач")
     public void compareResults(){

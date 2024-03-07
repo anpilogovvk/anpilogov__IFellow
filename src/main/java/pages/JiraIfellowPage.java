@@ -13,7 +13,6 @@ public class JiraIfellowPage {
 
     private final SelenideElement searchButton = $x("//input[@value='Вход']");
 
-
     public void loginIntoJira(String searchLogin, String searchPassword) {
         searchInputUsername.shouldBe(Condition.visible)
                 .sendKeys(searchLogin);
