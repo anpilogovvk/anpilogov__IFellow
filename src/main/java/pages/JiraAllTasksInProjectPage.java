@@ -17,7 +17,7 @@ public class JiraAllTasksInProjectPage {
     public void searchTask(String searchTaskName) {
         Selenide.sleep(500);
         advancedSearch.clear();
-        advancedSearch.shouldBe(Condition.visible)
+        advancedSearch.shouldBe()
                 .sendKeys(searchTaskName);
         searchExportButton.shouldHave(Condition.visible);
         searchButton.pressEnter();
@@ -29,8 +29,7 @@ public class JiraAllTasksInProjectPage {
     }
 
     public void clickTask() {
-        searchExportButton.shouldHave(Condition.visible);
-        Selenide.sleep(500);
+        searchExportButton.shouldHave();
         numberTaskButton.click();
     }
 }
