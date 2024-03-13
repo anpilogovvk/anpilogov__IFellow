@@ -5,7 +5,7 @@ import io.restassured.response.Response;
 import org.json.JSONObject;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import pages.RestSteps;
+import steps.RestSteps;
 
 import java.io.IOException;
 import java.nio.file.Files;
