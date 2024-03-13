@@ -2,7 +2,6 @@ package pages;
 
 import io.restassured.response.Response;
 
-
 import static io.restassured.RestAssured.given;
 
 public class RestSteps {
@@ -32,8 +31,6 @@ public class RestSteps {
                 .statusCode(statusCode)
                 .log().body()
                 .extract().response();
-
-//        System.out.println(Optional.ofNullable(response.body().path("name")));
         return response;
     }
 
