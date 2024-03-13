@@ -36,7 +36,6 @@ class RickAndMortyTest extends WebHooks {
         System.out.println("Раса Морти: " + findRaceMorty + ". Раса " + findCharacterName + ": " + findRaceCharacter);
         Assertions.assertNotEquals(findLocationLMorty, findLocationCharacter);
         System.out.println("Локация Морти: " + findLocationLMorty + ". Локация " + findCharacterName + ": " + findLocationCharacter);
-
     }
 
     @Test
@@ -48,6 +47,5 @@ class RickAndMortyTest extends WebHooks {
         Assertions.assertEquals(body.getString("name"), name);
         String job = marketResponse.jsonPath().getString("job");
         Assertions.assertEquals(body.getString("job"), job);
-
     }
 }

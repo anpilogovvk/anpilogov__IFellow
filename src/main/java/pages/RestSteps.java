@@ -33,5 +33,4 @@ public class RestSteps {
                 .extract().response();
         return response;
     }
-
 }
