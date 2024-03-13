@@ -18,7 +18,6 @@ public class RestSteps {
     }
 
     public Response postApi(String baseUri, String postUri, String body, int statusCode) {
-
         return given()
                 .header("Content-type", "application/json")
                 .header("charset", "utf-8")
