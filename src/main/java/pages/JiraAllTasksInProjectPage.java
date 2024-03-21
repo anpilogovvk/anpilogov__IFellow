@@ -14,7 +14,7 @@ public class JiraAllTasksInProjectPage {
     private final SelenideElement advancedSearch = $x("//div[@class='atlassian-autocomplete']/textarea[@aria-label='Расширенный запрос']").as("Поле для продвинутого поиска задач");
     private final SelenideElement searchButton = $x("//div[@class='search-options-container']/button[@original-title='Поиск задач']").as("Кнопка \"Поиск\"");
     private final SelenideElement numberTaskButton= $x("//div[@class='issue-content-container']/span[@class='issue-link-key']").as("Номер задачи");
-    private final SelenideElement searchExpertSearchButton= $x("    //div[@class='mode-switcher']/a[contains(text(),'Продвинутый')]").as("Кнопка \"Продвинутый поиск\"");
+    private final SelenideElement searchExpertSearchButton= $x("//div[@class='mode-switcher']/a[contains(text(),'Продвинутый')]").as("Кнопка \"Продвинутый поиск\"");
     private final SelenideElement searchExportButton= $x("//div[@id='opsbar-jira.issue.tools']/a[@original-title='Экспортировать этот запрос в другой формат']/span[contains(text(),'Экспорт')]").as("Кнопка \"Экспорт\"");
     private final SelenideElement searchLoading = $x("//div[@class='navigator-content']/div[@class='details-layout']/div[@class='loading']").as("Загрузка после поиска");
 
