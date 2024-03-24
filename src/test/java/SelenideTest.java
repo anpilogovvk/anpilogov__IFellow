@@ -8,6 +8,7 @@ import pages.JiraIfellowPage;
 import pages.JiraMainPage;
 import pages.JiraTasksInTestProjectPage;
 import pages.TaskPage;
+import util.TestProperties;
 
 
 @DisplayName("Jira Test")
@@ -27,7 +28,7 @@ public class SelenideTest extends WebHooks {
     @Test
     public void logInTest (){
         String searchRequest = "System Dashboard";
-        jiraIfellowPage.loginIntoJira(System.getProperty("login"),System.getProperty("password"));
+        jiraIfellowPage.loginIntoJira(TestProperties.getProperty("login"),TestProperties.getProperty("password"));
         Assertions.assertEquals(searchRequest,jiraMainPage.getFirstResultText());
 
     }

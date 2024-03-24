@@ -2,6 +2,7 @@ package WebHooks;
 
 import com.codeborne.selenide.Browsers;
 import com.codeborne.selenide.Configuration;
+
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 
@@ -10,23 +11,20 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 
-import java.io.IOException;
+import util.TestProperties;
 
 
 public class WebHooks {
 
     @DisplayName("Открыть сайт edujira.ifellow.ru и задать параметры окна бразуера")
     @BeforeEach
-    public void initBrowser() throws IOException {
+    public void initBrowser() {
         SelenideLogger.addListener("AllureSelenide",
         new AllureSelenide()
                 .screenshots(true)
                 .savePageSource(true));
-
-        System.getProperties().load(ClassLoader.getSystemResourceAsStream("application.properties"));
         Configuration.browser = Browsers.CHROME;
-        Selenide.open(System.getProperty("url"));
+        Selenide.open(TestProperties.getProperty("url"));
         WebDriverRunner.getWebDriver().manage().window().maximize();
     }
-
 }
