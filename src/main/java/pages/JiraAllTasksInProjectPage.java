@@ -16,7 +16,7 @@ public class JiraAllTasksInProjectPage {
     @Step("Продвинутый поиск задач по JQL запросу")
     public void searchTask(String searchTaskName){
         advancedSearch.shouldHave(Condition.visible).clear();
-        advancedSearch.shouldBe();
+        advancedSearch.shouldBe(Condition.empty);
         advancedSearch.shouldHave()
                 .sendKeys(searchTaskName);
         advancedSearch.shouldHave(Condition.value(searchTaskName));
