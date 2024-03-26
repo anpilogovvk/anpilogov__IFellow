@@ -1,6 +1,7 @@
 *.zip
-#.idea/
-#temp/
+.idea/
+temp/
+.build/
 
 # Project exclude paths
 /target/

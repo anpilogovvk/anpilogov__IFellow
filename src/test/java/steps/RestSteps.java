@@ -1,15 +1,16 @@
 package steps;
 
+
 import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;
 
 public class RestSteps {
 
-    public Response getApi(String baseUri, int statusCode) {
+    public Response getApi(String baseUri,String getUrl, int statusCode) {
         return given()
                 .baseUri(baseUri)
-                .get()
+                .get(getUrl)
                 .then()
                 .log().all()
                 .assertThat()
