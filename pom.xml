@@ -37,8 +37,9 @@
         <json.version>20210307</json.version>
 
         <parallelCount>1</parallelCount>
-    </properties>
 
+        <allure.maven.plugin.version>2.10.0</allure.maven.plugin.version>
+    </properties>
 
     <dependencies>
         <dependency>
@@ -81,6 +82,7 @@
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-cucumber7-jvm</artifactId>
             <version>${cucumber.7.jvm.version}</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>io.qameta.allure</groupId>
@@ -132,6 +134,8 @@
     </dependencies>
 
     <build>
+
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -178,6 +182,9 @@
                             <value>true</value>
                         </property>
                     </systemProperties>
+                    <includes>
+                        <include>**/CucumberTestsRunner.class</include>
+                    </includes>
                 </configuration>
                 <dependencies>
                     <dependency>

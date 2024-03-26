@@ -1,11 +1,9 @@
 package steps;
 
-
 import io.restassured.response.Response;
-
 import static io.restassured.RestAssured.given;
 
-public class RestSteps {
+public class RestStepsTest {
 
     public Response getApi(String baseUri,String getUrl, int statusCode) {
         return given()

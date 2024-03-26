@@ -34,7 +34,7 @@ public class TestSteps extends WebHooks {
 
     @Допустим("получить всех персонажей сериала")
     public void setCharacter() {
-        findMortySmithId = new RestSteps().getApi(TestProperties.getProperty("base.url.rick.and.morty"), TestProperties.getProperty("base.url.rick.and.morty.character"), 200);
+        findMortySmithId = new RestStepsTest().getApi(TestProperties.getProperty("base.url.rick.and.morty"), TestProperties.getProperty("base.url.rick.and.morty.character"), 200);
     }
 
     @И("найти id Морти")
@@ -44,7 +44,7 @@ public class TestSteps extends WebHooks {
 
     @И("открыть всю информацию о Морти")
     public void findMortyPage() {
-        findCharacterMorty = new RestSteps().getApi(TestProperties.getProperty("base.url.rick.and.morty"), TestProperties.getProperty("base.url.rick.and.morty.character") + mortySmithId, 200);
+        findCharacterMorty = new RestStepsTest().getApi(TestProperties.getProperty("base.url.rick.and.morty"), TestProperties.getProperty("base.url.rick.and.morty.character") + mortySmithId, 200);
     }
 
     @И("найти расу, локацию и последний эпизод с участием Морти")
@@ -56,7 +56,7 @@ public class TestSteps extends WebHooks {
 
     @И("перейти в последний эпизод с участием Морти")
     public void goToLastEpisode() {
-        goToEpisode = new RestSteps().getApi(findLastEpisode, "", 200);
+        goToEpisode = new RestStepsTest().getApi(findLastEpisode, "", 200);
     }
 
     @И("найти последнего персонажа в эпизоде")
@@ -66,7 +66,7 @@ public class TestSteps extends WebHooks {
 
     @И("открыть всю информацию о последнем персонаже в эпизоде")
     public void lastCharacterIntoEpisodeInfo() {
-        goToCharacter = new RestSteps().getApi(findLastCharacter, "", 200);
+        goToCharacter = new RestStepsTest().getApi(findLastCharacter, "", 200);
     }
 
     @И("найти расу, локацию и последний эпизод с участием персонажа")
@@ -95,7 +95,7 @@ public class TestSteps extends WebHooks {
 
     @И("отправить POST запрос на создание нового пользователя")
     public void createUser() {
-        marketResponse = new RestSteps().postApi(TestProperties.getProperty("base.url.reqres"), "/api/users", body.toString(), 201);
+        marketResponse = new RestStepsTest().postApi(TestProperties.getProperty("base.url.reqres"), "/api/users", body.toString(), 201);
     }
 
     @И("сверяем имя пользователя из запроса с именем пользователя из ответа")
