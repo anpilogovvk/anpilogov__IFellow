@@ -11,8 +11,9 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 
-import util.TestProperties;
+import pages.JiraFellowPage;
 
+import util.TestProperties;
 
 public class WebHooks {
 
@@ -20,11 +21,17 @@ public class WebHooks {
     @BeforeEach
     public void initBrowser() {
         SelenideLogger.addListener("AllureSelenide",
-        new AllureSelenide()
-                .screenshots(true)
-                .savePageSource(true));
+                new AllureSelenide()
+                        .screenshots(true)
+                        .savePageSource(true));
+        openPage(TestProperties.getProperty("jira.url"));
+        JiraFellowPage jiraIfellowPage = new JiraFellowPage();
+        jiraIfellowPage.loginIntoJira(TestProperties.getProperty("login"), TestProperties.getProperty("password"));
+    }
+
+    private void openPage(String url) {
         Configuration.browser = Browsers.CHROME;
-        Selenide.open(TestProperties.getProperty("url"));
+        Selenide.open(url);
         WebDriverRunner.getWebDriver().manage().window().maximize();
     }
 }

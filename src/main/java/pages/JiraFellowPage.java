@@ -4,10 +4,9 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
-
 import static com.codeborne.selenide.Selenide.$x;
 
-public class JiraIfellowPage{
+public class JiraFellowPage{
 
     private final SelenideElement searchInputUsername = $x("//input[@name='os_username']").as("Поле для ввода username");
 
