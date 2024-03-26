@@ -153,12 +153,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.1.2</version>
                 <configuration>
-                    <properties>
-                        <property>
-                            <name>listener</name>
-                            <value>io.qameta.allure.junit5.AllureJunit5</value>
-                        </property>
-                    </properties>
+
                     <parallel>methods</parallel>
                     <threadCount>${parallelCount}</threadCount>
                     <perCoreThreadCount>true</perCoreThreadCount>
@@ -192,6 +187,12 @@
                         <artifactId>aspectjweaver</artifactId>
                         <version>${aspectj.version}</version>
                     </dependency>
+                    <dependency>
+                        <groupId>org.apache.maven.surefire</groupId>
+                        <artifactId>surefire-junit47</artifactId>
+                        <version>3.2.3</version>
+                    </dependency>
+
                 </dependencies>
             </plugin>
 
