@@ -14,25 +14,31 @@ public class TaskPage{
     private final SelenideElement searchOtherStatusBarButton = $x("//div[@id='opsbar-opsbar-transitions']/a[@id='opsbar-transitions_more']").as("Кнопка \"Бизнес-процесс\"");;
     private final SelenideElement searchDoneStatusButton = $x("//aui-item-link[@class='issueaction-workflow-transition']/a[@role='menuitem']").as("Кнопка смены статуса \"Выполнено\"");;
     private final SelenideElement searchInProgressStatus = $x("//li[@class='item item-right']/div[@class='wrap']/span[@id='status-val']/span[contains(text(),'В работе')]").as("Поле Статус\"В РАБОТЕ\"");
+    private final SelenideElement searchLoading = $x("//div[@class='navigator-content']/div[@class='details-layout']/div[@class='loading']").as("Загрузка");
 
     @Step("Записать значения поля \"Fix version\"")
     public String getFixVersionNumber(){
+        searchLoading.shouldNotHave(Condition.visible);
         return searchFixVersionNumber.getText();
     }
 
     @Step("Записать статус задачи")
     public String getStatus(){
+        searchLoading.shouldNotHave(Condition.visible);
         searchInProgressStatus.shouldNotBe();
         return searchStatus.shouldNotBe().getText();
     }
 
     @Step("Изменить статус задачи на \"В РАБОТЕ\"")
     public void setStatusInProgress(){
+        searchLoading.shouldNotHave(Condition.visible);
         searchInProgressStatusButton.click();
     }
 
     @Step("Открыть выпадашку \"Бизнес процесс\"")
+
     public void openOtherStatusBar() {
+        searchLoading.shouldNotHave(Condition.visible);
         searchOtherStatusBarButton.shouldBe().click();
     }
 
